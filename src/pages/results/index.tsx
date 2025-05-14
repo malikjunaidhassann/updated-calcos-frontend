@@ -24,11 +24,6 @@ function Index() {
                 return (
                     <>
                         <SearchBar />
-                        <Results
-                            inputProduct={inputProduct}
-                            similarProducts={similarProducts}
-                            isLoading={currentStatus}
-                        />
                         <IdleElement />
                     </>
                 );
