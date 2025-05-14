@@ -1,0 +1,257 @@
+/* Results Container Styles */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: -1px 0 3px rgba(251, 180, 180, 0.5), 1px 0 3px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+  font-family: serif;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+hr.rounded {
+  border-top: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.similar-products {
+  width: 100%;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: 40px 0;
+}
+
+/* Input Product Card Styles */
+.input-product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+  background-color: #3f4146;
+  padding: 20px;
+}
+
+.price-link-wrapper {
+  align-self: flex-start;
+}
+
+.input-product-card .large-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.input-product-website {
+  font-weight: bold;
+  text-align: left;
+  color: #a1a1a4;
+  width: 100%;
+}
+
+.input-product-website h5 {
+  margin: 15px 0;
+}
+
+.input-product-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  color: #ecebed;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input-product-title h3 {
+  font-size: 1.5rem;
+}
+
+.input-product-button-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+/* product condition */
+.price-condition {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.condition {
+  padding: 6px 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  display: inline-block;
+  text-transform: uppercase;
+  border: 1px solid black;
+}
+
+/* Product Card Styles */
+.product-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 10px 0;
+  max-width: 600px;
+  color: white;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #3f4146;
+  border: 1px solid #555;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  background-color: #4a4d52;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #777;
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: fill; /* cover, fill, contain */
+  margin-right: 12px;
+  background-color: #3f4146;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  height: auto;
+  margin-bottom: 0;
+  gap: 8px;
+}
+
+.product-details h3 {
+  font-size: 1rem;
+}
+
+.product-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  width: 100%;
+}
+
+.product-website {
+  color: #a1a1a4;
+}
+
+.price-condition {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.condition {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid black;
+}
+
+.marketplace {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #999;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .input-product-card {
+    padding: 15px;
+  }
+
+  .input-product-title,
+  .input-product-website {
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+
+  .product-image {
+    width: 120px;
+    height: 120px;
+    margin-right: 15px;
+  }
+
+  .price-condition {
+    font-size: 0.9rem;
+  }
+}
+
+/* Media query for even smaller screens (mobile) */
+@media (max-width: 480px) {
+  .input-product-title,
+  .input-product-website {
+    font-size: 14px;
+  }
+
+  .product-card {
+    padding: 10px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  .product-title {
+    font-size: 14px;
+  }
+
+  .product-website {
+    font-size: 12px;
+  }
+
+  .product-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+
+  .price-condition {
+    font-size: 0.8rem;
+    z-index: 100;
+  }
+
+  .condition {
+    margin-left: 10px;
+    font-size: 0.75rem;
+  }
+}

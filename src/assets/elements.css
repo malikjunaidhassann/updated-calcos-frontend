@@ -1,0 +1,271 @@
+/* search bar elements */
+.search-bar {
+  background-color: white;
+  border: 1.8px solid black;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 8px;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.search-bar * {
+  background-color: transparent;
+}
+
+.search-bar .icon {
+  font-size: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.search-bar .text-search {
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: medium;
+  padding: 0 0.5rem;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: grey;
+}
+
+.search-bar .img-search {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar .img-search .tooltip {
+  visibility: hidden;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.search-bar .img-search:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* price element */
+.price-container {
+  display: flex;
+  align-items: baseline;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  padding: 6px 10px;
+  border: 2px solid #eaeaea;
+  border-radius: 6px;
+  background-color: #ebebeb;
+  box-shadow: -5px 5px black;
+  width: fit-content;
+  margin-top: 4px;
+  gap: 1.8px;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.price-container * {
+  color: black;
+}
+
+.price-container:hover {
+  gap: 4px;
+  background-color: #f0f0f0;
+  box-shadow: -3px 2px 5px rgba(0, 0, 0, 0.5);
+  transform: translateY(4px) scale(1.005);
+}
+
+.price-container .price {
+  margin-right: 5px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.price-container .currency {
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+/* Loading element */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding-top: 20%;
+  box-sizing: border-box;
+}
+
+.loading-element {
+  position: relative;
+  width: 100%;
+  margin: 20% 0;
+}
+
+.loading-text {
+  position: absolute;
+  opacity: 0;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  color: rgb(150, 144, 144);
+  font-family: "Merriweather", serif;
+  transition: opacity 1s ease-in-out;
+}
+
+.loading-text.visible {
+  opacity: 1;
+  animation: loading-fadeIn-animation 1.1s ease-in-out;
+}
+
+.loading-text.hidden {
+  opacity: 0;
+  animation: loading-fadeOut-animation 1.1s ease-in-out;
+}
+
+/* Loading element text only */
+.loader-container-text {
+  height: 150px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loading-element-text {
+  position: relative;
+  width: 100%;
+}
+
+
+@keyframes loading-fadeIn-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loading-fadeOu-animationt {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* skeleton element */
+.skeleton-container {
+  width: 100%;
+  height: 100%;
+}
+
+.skeleton-container .product-card:hover {
+  background-color: #3f4146;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #555;
+}
+
+.skeleton {
+  opacity: 0.8;
+  background: linear-gradient(90deg, #2c2e33 25%, #3f4146 50%, #2c2e33 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading-animation 3s linear infinite;
+  border-radius: 0.125rem;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 1.2rem;
+  margin: 0.2rem 0;
+}
+
+@keyframes skeleton-loading-animation {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Small screans */
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .price-container {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+  .currency {
+    font-size: 0.6rem;
+  }
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+  .search-bar {
+    padding: 8px;
+    border-radius: 8px;
+    gap: 8px;
+  }
+
+  .search-bar input[type="text"] {
+    font-size: small;
+    padding: 0 0.3rem;
+  }
+
+  .price-container {
+    padding: 5px 8px;
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
+  }
+
+  .currency {
+    font-size: 0.65rem;
+  }
+}
