@@ -195,7 +195,7 @@ const BlogPage = (): JSX.Element => {
       <Header />
       <header className="flex flex-col justify-center py-[30px] w-full bg-[#1e1e1e] items-center gap-[50px]">
         <div className="w-full max-w-[90%] px-4 md:px-1 flex items-start">
-          <div className="w-full flex justify-center font-['Inter',Helvetica] font-bold text-[68px] text-white text-nowrap md:text-[243.8px] border-t border-b border-[#ffffff57] py-4">
+          <div className="w-full flex justify-center font-['Inter',Helvetica] font-bold text-[60px] text-white text-nowrap md:text-[210.8px] border-t border-b border-[#ffffff57] py-4">
             THE BLOG
           </div>
         </div>

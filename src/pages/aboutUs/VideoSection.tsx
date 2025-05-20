@@ -21,7 +21,7 @@ const VideoSection = (): JSX.Element => {
       </div>
 
       <div className="flex w-full items-center justify-center py-[20px] px-[10px] md:py-[40px] md:px-[30px] bg-[#fe37a3]">
-        <span className="font-['Inter',Helvetica] font-bold text-[18px] md:text-[32px] text-white text-center leading-normal">
+        <span className="font-['Inter',Helvetica] font-bold text-[14px] md:text-[29px] text-white text-center leading-normal">
           Your Satisfaction, Our Priority:<br className="block md:hidden" /> Transforming Your Living Spaces
         </span>
       </div>

@@ -136,27 +136,27 @@ const Catalog = (): JSX.Element => {
       <div className="flex flex-col items-center justify-center gap-14 px-5 md:px-20">
         <div className="flex flex-col items-center gap-16 w-full max-w-[1260px]">
           <div className="flex flex-col items-center gap-6 w-full">
-            <h2 className="font-['Hanken_Grotesk',Helvetica] font-bold text-white text-4xl md:text-7xl text-center leading-tight">
-              Discover Affordable Alternatives Without Compromising Style
+            <h2 className=" w-[70%] font-['Hanken_Grotesk',Helvetica] font-bold text-white text-xxl md:text-5xl text-center leading-tight">
+              Discover Affordable Alternatives  Without Compromising Style
             </h2>
 
-            <p className="font-['Inter',Helvetica] font-normal text-[#8f8f8f] text-xl md:text-2xl text-center leading-relaxed">
+            <p className="font-['Inter',Helvetica] font-normal text-[#8f8f8f] text-x md:text-x text-center leading-relaxed">
               From high-end originals to budget-friendly lookalikes, explore
-              furniture designed to fit your taste and budget.
+              furniture designed  to fit your taste and budget.
             </p>
 
-            <div className="flex flex-wrap justify-center md:justify-between gap-4 w-full max-w-[1260px] py-4">
+            <div className="flex flex-wrap justify-center gap-4 w-full max-w-[1260px] py-4">
               {categories.map((category, index) => (
                 <Button
                   key={index}
                   variant={category.active ? "default" : "outline"}
-                  className={`w-[150px] h-[48px] md:w-[180px] md:h-[64px] text-[16px] md:text-[24px] px-6 rounded-[10px] focus:bg-[#fe37a3] focus:text-white ${
+                  className={`w-[100px] h-[38px] md:w-[140px] md:h-[44px] text-[10px] md:text-[18px] px-6 rounded-[10px] focus:bg-[#fe37a3] focus:text-white ${
                     category.name
-                      ? "bg-neutral-100 text-[#6a6a6a]"
+                      ? "bg-neutral-100 text-[#0f0e0e]"
                       : " bg-[#fe37a3] text-white"
                   }`}
                 >
-                  <span className="font-['Inter',Helvetica] font-medium text-xl md:text-2xl">
+                  <span className="font-['Inter',Helvetica] font-medium text-[10px] md:text-[15px] text-black">
                     {category.name}
                   </span>
                 </Button>
@@ -235,7 +235,7 @@ const Catalog = (): JSX.Element => {
               <Carousel className="w-full max-w-[1076px]">
                 <CarouselContent>
                   <CarouselItem>
-                    <div className="relative w-full h-[270px]">
+                    <div className="relative w-[85%] h-[270px]">
 
                       <Card className="absolute w-[339px] h-[202px] top-[34px] left-[136px] bg-white rounded-[10.34px] border-[1.03px] border-solid">
                         <CardContent className="p-0">
@@ -419,49 +419,49 @@ const Catalog = (): JSX.Element => {
         {[0, 1, 2, 3].map((rowIndex) => (
           <div
             key={rowIndex}
-            className={`grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-[43px] w-full max-w-[1260px]`}
+            className={`grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-[43px] w-full  max-w-[1260px]`}
           >
             {catalogProducts.map((product, index) => (
               <Card
                 key={`${rowIndex}-${index}`}
-                className={`flex flex-col items-start gap-5 p-6 bg-white rounded-[25.7px] ${
+                className={`flex flex-col  items-start gap-5 pt-6 pl-6 pb-6 bg-white rounded-[25.7px] ${
                   rowIndex === 3
                     ? "md:bg-[linear-gradient(180deg,rgba(30,30,30,0)_50%,#1E1E1E_125%)]"
                     : ""
                 }`}
               >
-                <CardContent className="p-0 w-full">
+                <CardContent className="p-0  ">
                   {product.imageSrc ? (
                     <img
-                      className="w-full h-[254.4px] rounded-[12.85px]"
+                      className="w-[90%] h-[180.4px] rounded-[12.85px]"
                       alt={product.name}
                       src={product.imageSrc}
                     />
                   ) : (
                     <div
-                      className={`w-full h-[254.4px] rounded-[12.85px] ${
+                      className={`w-[90%] h-[180.4px] rounded-[12.85px] ${
                         product.hasImage ? "bg-[#d9d9d9]" : ""
                       }`}
                     />
                   )}
 
-                  <div className="w-full flex flex-wrap items-end gap-5 mt-5">
-                    <h3 className="w-full font-['Inter',Helvetica] font-semibold text-[#1f1f1f] text-2xl md:text-[32px] leading-tight">
+                  <div className="w-full flex flex-wrap items-end gap-5 mt-2">
+                    <h3 className="w-full font-['Inter',Helvetica] font-semibold text-[#1f1f1f] text-1xl md:text-[22px] leading-tight">
                       {product.name}
                     </h3>
 
-                    <p className="w-full font-['Inter',Helvetica] font-normal text-[#979797] text-lg md:text-[20.6px] leading-relaxed">
+                    <p className=" font-['Inter',Helvetica]  text-[#979797] text-x md:text-[13.6px] w-[90%] leading-relaxed">
                       {product.description}
                     </p>
 
                     <div className="flex justify-between items-center w-full">
-                      <span className="font-['Inter',Helvetica] font-bold text-[#fe37a3] text-2xl md:text-[30.8px]">
+                      <span className="font-['Inter',Helvetica] font-bold text-[#fe37a3] text-xl md:text-[20.8px]">
                         Price {product.price}
                       </span>
 
                       <Button variant="ghost" className="p-0 h-auto">
                         <img
-                          className="w-[46.25px] h-[46.25px]"
+                          className="w-[36.25px] flex relative right-10"
                           alt="Shopping cart"
                           src="/material-symbols-shopping-cart-2.svg"
                         />

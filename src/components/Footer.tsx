@@ -25,10 +25,10 @@ import {
   
     // Social media icons data
     const socialIcons = [
-      { icon: <FacebookIcon className="w-8 h-8" />, alt: "Facebook" },
-      { icon: <InstagramIcon className="w-8 h-8" />, alt: "Instagram" },
-      { icon: <TwitterIcon className="w-8 h-8" />, alt: "Twitter" },
-      { icon: <LinkedinIcon className="w-8 h-8" />, alt: "LinkedIn" },
+      { icon: <FacebookIcon className="w-8 h-8 text-black" />, alt: "Facebook" },
+      { icon: <InstagramIcon className="w-8 h-8  text-black" />, alt: "Instagram" },
+      { icon: <TwitterIcon className="w-8 h-8  text-black" />, alt: "Twitter" },
+      { icon: <LinkedinIcon className="w-8 h-8  text-black" />, alt: "LinkedIn" },
     ];
   
     return (
@@ -155,7 +155,7 @@ import {
         </div>
   
         {/* Background text */}
-        <div className=" text-[70px] h-fit font-bold text-[#1a1a1a] md:text-[300px] md:leading-[360px] ">
+        <div className=" text-[80px] h-fit font-bold text-[#1a1a1a] md:text-[250px] md:leading-[280px] ">
             CALCOS
         </div>
       </footer>

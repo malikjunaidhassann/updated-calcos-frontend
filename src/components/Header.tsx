@@ -17,7 +17,7 @@ const Header = (): JSX.Element => {
   
 
   return (
-    <header className="flex w-screen fixed top-0 h-[71px] z-40 items-center justify-between px-4 md:px-20 py-0 bg-[#57575724] backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)]">
+    <header className="flex w-[98.5%] fixed top-0 h-[71px] z-40 items-center justify-between px-4 md:px-20 py-0 bg-[#57575724] backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] overflow-hidden">
       {/* Logo section */}
       <div className="flex items-center gap-3">
         <div className="relative w-[164px] h-9">
@@ -53,11 +53,11 @@ const Header = (): JSX.Element => {
 
       {/* Navigation links */}
       <NavigationMenu className={`${isMenuOpen ? 'block' : 'hidden'} md:block absolute md:relative top-[71px] md:top-0 right-0 w-full md:w-auto bg-transparent backdrop:blur md:bg-transparent z-50 `}>
-        <NavigationMenuList className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-[50px] p-4 md:p-0">
+        <NavigationMenuList className="flex flex-col  md:flex-row items-start md:items-center gap-6 md:gap-[50px] p-4 md:p-0">
           {NavLinks.map((link, index) => (
               <NavigationMenuItem key={index}>
                 <NavigationMenuLink
-                  className={`text-2xl leading-6 font-['Inter',Helvetica] text-white ${
+                  className={`text-[16px] leading-6 font-['Inter',Helvetica] text-white ${
                     link.link === pathname ? "font-bold" : "font-normal"
                   }`}
                 >

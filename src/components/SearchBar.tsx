@@ -63,11 +63,11 @@ const SearchBar = () => {
     };
     return (
         <div className="w-full max-w-[489px] mx-auto md:mx-0 mb-8 md:mb-0">
-            <div className="relative w-full h-[50px] md:h-[68px]">
+            <div className="relative w-full h-[40px] md:h-[40px]">
                 <div className="absolute w-full h-full top-0 left-0">
                     <div className="relative w-full h-full bg-[#b4b4b48a] rounded-[40px] border border-solid border-white backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] sm:min-w-[50px]">
                         <Input
-                            className="absolute w-[calc(100%-80px)] top-1/2 -translate-y-1/2 left-8 [font-family:'Inter',Helvetica] font-normal text-white text-base md:text-[21px] tracking-[-0.42px] leading-[normal] bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                            className="absolute w-[calc(100%-80px)] top-1/2 -translate-y-1/2 left-8 [font-family:'Inter',Helvetica] font-normal text-white  tracking-[-0.42px] leading-[normal] bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0"    
                             placeholder="Calcos.com/Paste URL or search"
                             onChange={(e) => setSearchText(e.target.value)}
                             onKeyDown={handleKeyDown}
@@ -75,11 +75,11 @@ const SearchBar = () => {
                     </div>
                 </div>
 
-                <button className="absolute w-[35px] md:w-[47px] h-[35px] md:h-[47px] top-1/2 -translate-y-1/2 right-2 md:right-4 bg-[#fe37a3] rounded-[23.5px] flex items-center justify-center"
+                <button className="absolute w-[25px] md:w-[37px] h-[25px] md:h-[37px] top-1/2 -translate-y-1/2 right-2 md:right-4 bg-[#fe37a3] rounded-[23.5px] flex items-center justify-center"
                     onClick={() => fileInputRef.current?.click()}
                 >
                     <img
-                        className="w-[18px] md:w-[23px] h-[18px] md:h-[23px]"
+                        className="w-[13px] md:w-[15px] h-[18px] md:h-[23px]"
                         alt="Search icon"
                         src="/icon--stroke-.svg"
                     />

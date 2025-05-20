@@ -35,20 +35,20 @@ const TopCategories = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center gap-8 md:gap-16 py-8 md:py-16 px-4 sm:px-8 md:px-20 w-full bg-[#1e1e1e]">
+    <section className="flex flex-col items-center justify-center gap-8 md:gap-16 py-8 md:py-16 px-4 sm:px-6 md:px-8 w-full bg-[#1e1e1e]">
       <div className="flex flex-col md:flex-row justify-between w-full items-center gap-6 md:gap-0">
-        <div className="flex flex-col items-center md:items-start gap-4 md:gap-5 max-w-full md:max-w-[893px]">
-          <h2 className="font-bold text-white text-4xl md:text-5xl lg:text-[64px] leading-tight md:leading-[76.8px] font-['Hanken_Grotesk',Helvetica] text-center md:text-left">
+        <div className="flex flex-col items-center md:items-start gap-4 md:gap-5 max-w-full md:max-w-[893px] mb-8">
+          <h2 className="font-bold text-white text-[40x] md:text-[50px]  leading-tight md:leading-[76.8px] font-['Hanken_Grotesk',Helvetica] text-center md:text-left">
             Discover Products You&apos;ll Love
           </h2>
-          <p className="text-[#8f8f8f] text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-[38.4px] font-['Inter',Helvetica] text-center md:text-left">
+          <p className="text-[#8f8f8f] text-[12px] md:text-[18px] w-[99%]  leading-relaxed md:leading-[38.4px] font-['Inter',Helvetica] text-center md:text-left">
             Explore a curated selection of the latest products sourced from top
             picks by users.
           </p>
         </div>
 
-        <div className="flex items-center gap-3.5 pl-6 md:pl-10 pr-4 md:pr-6 py-3 md:py-4 rounded-[20px] border-2 border-[#fe37a3] backdrop-blur-[50px] w-full md:w-auto">
-          <span className="text-white text-lg md:text-2xl leading-[33.6px] font-['Inter',Helvetica] whitespace-nowrap">
+        <div className="flex relative right-10 bottom-4 items-center gap-3.5 pl-6 md:pl-10 pr-4 md:pr-6  py-3 md:py-4 rounded-[20px] border-2 border-[#fe37a3] backdrop-blur-[50px] w-full md:w-auto">
+          <span className="text-white text-lg md:text-1xl leading-[33.6px] font-['Inter',Helvetica] whitespace-nowrap">
             Paste URL or search
           </span>
           <SearchIcon className="w-5 md:w-[22.58px] h-5 md:h-[22.58px] text-white flex-shrink-0" />

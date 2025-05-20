@@ -84,7 +84,7 @@ const VisionAndMission = (): JSX.Element => {
   return (
     <section className="flex flex-col items-center gap-[50px] py-20 bg-black w-full px-4 overflow-hidden">
       <header className="flex flex-col items-center gap-[5px] w-[374px] md:w-full">
-        <h2 className="w-full font-bold md:text-[44px] text-white text-center font-['Inter',Helvetica] leading-normal md:text-4xl text-[20px]">
+        <h2 className="w-full font-bold md:text-[43px] text-white text-center font-['Inter',Helvetica] leading-normal md:text-4xl text-[20px]">
           Our Vision and Mission
         </h2>
         <p className="font-normal text-[sm] text-[#b7b7b7] text-center font-['Inter',Helvetica] leading-normal px-4">
