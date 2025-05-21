@@ -1,7 +1,6 @@
 import IdleElement from "../../components/IdleElement.js";
 import LoadingElement from "../../components/LoadingElement.js";
 import Results from "../../components/Results.js";
-import useProductSearch from "../../hooks/useProductSearch";
 import "../../assets/pages.css";
 import SearchBar from "../../components/SearchBar.js";
 import Header from "../../components/Header.js";

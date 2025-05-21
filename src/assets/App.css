@@ -86,6 +86,8 @@ a#website:hover {
 .video-tutorial #sticker {
   cursor: pointer;
   position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -60%);
   z-index: 2;
 }
@@ -187,6 +189,7 @@ a#website:hover {
 .duplicated-imgs-container .mirror-2 {
   position: absolute;
   left: 41%;
+  top: 41%;
   z-index: 4;
   padding: 0 1rem;
   transform: translate(0.2rem, -0.2rem);
