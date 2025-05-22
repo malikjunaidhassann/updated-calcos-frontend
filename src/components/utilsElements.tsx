@@ -8,7 +8,7 @@ const priceFormatter = new Intl.NumberFormat("en-US", {
 
 function PriceElement({ price, currency }: any) {
   try {
-    price = priceFormatter.format(price.match(/[\d,.]+/)[0].replace(/,/g, ''));
+    price = priceFormatter.format(price.replace(/[\s\u00A0\u202F]/g, '').match(/[\d,.]+/)[0].replace(/,/g, ''));
   } catch (error) {
     console.error("Error formatting price:", error);
   }
