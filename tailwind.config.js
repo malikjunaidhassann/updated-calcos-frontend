@@ -58,6 +58,13 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
+        screens: {
+          xs: '480px', // or whatever width you prefer for mobile
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+        },
       },
       keyframes: {
         "accordion-down": {

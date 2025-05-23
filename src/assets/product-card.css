@@ -50,8 +50,15 @@ hr {
   align-self: flex-start;
 }
 
-.input-product-card .large-image {
+.input-product-card {
   width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.large-image{
+  width: 50%;
   height: auto;
   border-radius: 10px;
   object-fit: cover;

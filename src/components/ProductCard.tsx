@@ -1,5 +1,7 @@
 import "../assets/elements.css";
 import "../assets/product-card.css";
+// import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
 import PriceElement from "./utilsElements";
 
 function ProductCard({ product }: any) {
@@ -7,8 +9,8 @@ function ProductCard({ product }: any) {
 
   return (
     <>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <div className="product-card">
+      <a className="sm:w-[80%] md:w-[30%]" href={url} target="_blank" rel="noopener noreferrer">
+        {/* <div className="product-card">
           <img src={imageUrl} alt={title} className="product-image" />
           <div className="product-details">
             <div className="product-title">
@@ -28,7 +30,48 @@ function ProductCard({ product }: any) {
               {outOfStock && <span className="condition">{outOfStock}</span>}
             </div>
           </div>
-        </div>
+        </div> */}
+          <Card className={`flex flex-col max-w-[330px]   items-start gap-5 p-6 bg-white rounded-[25.7px]`} >
+            <CardContent className="p-0">
+              {imageUrl ? (
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  className="w-[80%] h-[180.4px] rounded-[12.85px] object-contain  mx-auto"
+                />
+              ) : (
+                <div className="w-[90%] h-[180.4px] bg-[#d9d9d9] rounded-[12.85px]" />
+              )}
+
+              <div className="w-full flex flex-wrap items-start gap-4 mt-4">
+                {/* Title */}
+                <h3 className="w-full font-['Inter',Helvetica] font-semibold text-[#1f1f1f] text-lg md:text-[22px] leading-tight">
+                  {title}
+                </h3>
+
+                {/* Website */}
+                <h5 className="text-[#979797] text-sm md:text-[13.6px] w-[90%] leading-relaxed">
+                  {website}
+                </h5>
+
+      <div className="flex justify-between items-center w-full px-2">
+              {price && (
+                <PriceElement price={price} currency={currency} />
+              )}
+              {condition && <span className="condition">{condition}</span>}
+              {inStock && <span className="condition">{inStock}</span>}
+              {outOfStock && <span className="condition">{outOfStock}</span>}
+            </div>
+
+      {/* Condition & Stock
+      <div className="text-sm text-gray-600 flex gap-3 flex-wrap">
+        {condition && <span>{condition}</span>}
+        {inStock && <span>In Stock</span>}
+        {outOfStock && <span>Out of Stock</span>}
+      </div> */}
+    </div>
+  </CardContent>
+  </Card>
       </a>
     </>
   );

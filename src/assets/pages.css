@@ -70,8 +70,7 @@
   background-color: transparent;
   flex: 1;
   padding: 1vw;
-  width: 600px;
-  max-width: 600px;
+  width: 100%;
   box-sizing: border-box;
 }
 

@@ -419,12 +419,12 @@ const Catalog = (): JSX.Element => {
         {[0, 1, 2, 3].map((rowIndex) => (
           <div
             key={rowIndex}
-            className={`grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-[43px] w-full  max-w-[1260px]`}
+            className={`grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-[42px]    max-w-[full]`}
           >
             {catalogProducts.map((product, index) => (
               <Card
                 key={`${rowIndex}-${index}`}
-                className={`flex flex-col  items-start gap-5 pt-6 pl-6 pb-6 bg-white rounded-[25.7px] ${
+                className={`flex flex-col max-w-[320px]  items-start gap-5 pt-6 pl-6 pb-6 bg-white rounded-[25.7px] ${
                   rowIndex === 3
                     ? "md:bg-[linear-gradient(180deg,rgba(30,30,30,0)_50%,#1E1E1E_125%)]"
                     : ""
