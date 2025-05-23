@@ -19,18 +19,15 @@ const useProductSearch = () => {
         eventSource.onmessage = (event) => {
             try {
                 const msg = JSON.parse(event.data);
-                console.log({ msg })
                 if (msg.inputData) {
                     const data = image
                         ? { ...msg.inputData, imageUrl: image }
                         : { ...msg.inputData, imageUrl: msg.inputData };
 
-                    console.log("Received input data:", msg.inputData);
                     setInputProduct(data);
                     setStatus(STATUS.LOADWITHDATA);
                 }
                 else if (msg.similarProducts) {
-                    console.log("Received similar products:", msg.similarProducts);
                     appendSimilarProducts(msg.similarProducts);
                 }
             } catch (error) {
@@ -81,7 +78,6 @@ const useProductSearch = () => {
             });
 
             const data = await response.json();
-            console.log(data.filename)
             setupEventSource(
                 `${backend_Url}lens/base64?filename=${encodeURIComponent(data.filename)}`,
                 base64Url
