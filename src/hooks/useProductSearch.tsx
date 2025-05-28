@@ -3,7 +3,11 @@ import useProductStore from "../store/productStore";
 
 const useProductSearch = () => {
     const navigate = useNavigate();
-    const backend_Url =   import.meta.env.VITE_BACKEND_URL;
+    const backend_Url = import.meta.env.VITE_BACKEND_URL;
+    const cloud_name = import.meta.env.VITE_CLOUD_NAME;
+    const cloud_secret_key = import.meta.env.VITE_CLOUD_SECRET_KEY;
+    const cloud_api_key = import.meta.env.VITE_CLOUD_API_KEY;
+
     const {
         STATUS,
         setInputProduct,
@@ -53,39 +57,31 @@ const useProductSearch = () => {
     const handleURLSearch = (url: any) => {
         resetState();
         setupEventSource(
-            `${backend_Url}lens/url?imageUrl=${encodeURIComponent(url)}`,
+            `${backend_Url}visual_matches?url=${encodeURIComponent(url)}`,
             url
         );
     };
-    const convertToBase64 = (file: any) => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
+    const uploadToCloudinary = async (file: any) => {
+        const url = `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`;
 
-            reader.onload = () => resolve(reader.result); // base64 string
-            reader.onerror = (error) => reject(error);
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "my_preset"); // See below
 
-            reader.readAsDataURL(file); // This returns base64-encoded data URL
+        const res = await fetch(url, {
+            method: "POST",
+            body: formData,
         });
+
+        const data = await res.json();
+        return data.secure_url; // Public image URL
     };
+
     const handleImgSearch = async (image: any) => {
         resetState();
-        const base64Url: any = await convertToBase64(image);
-        try {
-            const response = await fetch(`${backend_Url}image-upload`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ base64Image: base64Url })
-            });
-
-            const data = await response.json();
-            setupEventSource(
-                `${backend_Url}lens/base64?filename=${encodeURIComponent(data.filename)}`,
-                base64Url
-            );
-        } catch (error) {
-            console.error("Error during image search:", error);
-            setStatus(STATUS.IDLE);
-        }
+        // const base64Url: any = await convertToBase64(image);
+        const imageUrl = await uploadToCloudinary(image);
+        handleURLSearch(imageUrl)
     };
 
     return {

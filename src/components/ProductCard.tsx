@@ -5,11 +5,11 @@ import { Card, CardContent } from "./ui/card";
 import PriceElement from "./utilsElements";
 
 function ProductCard({ product }: any) {
-  const { imageUrl, title, url, website, price, currency, condition, inStock, outOfStock } = product;
+  const { image, title, link, source,  price, source_icon, condition, in_stock, rating } = product;
 
   return (
     <>
-      <a className="sm:w-[80%] md:w-[30%]" href={url} target="_blank" rel="noopener noreferrer">
+      <a className="sm:w-[80%] md:w-[30%]" href={link} target="_blank" rel="noopener noreferrer">
         {/* <div className="product-card">
           <img src={imageUrl} alt={title} className="product-image" />
           <div className="product-details">
@@ -33,9 +33,9 @@ function ProductCard({ product }: any) {
         </div> */}
           <Card className={`flex flex-col max-w-[330px]   items-start gap-5 p-6 bg-white rounded-[25.7px]`} >
             <CardContent className="p-0">
-              {imageUrl ? (
+              {image ? (
                 <img
-                  src={imageUrl}
+                  src={image}
                   alt={title}
                   className="w-[80%] h-[180.4px] rounded-[12.85px] object-contain  mx-auto"
                 />
@@ -50,17 +50,19 @@ function ProductCard({ product }: any) {
                 </h3>
 
                 {/* Website */}
-                <h5 className="text-[#979797] text-sm md:text-[13.6px] w-[90%] leading-relaxed">
-                  {website}
+                <h5 className="text-[#979797] text-sm md:text-[13.6px] w-[90%] leading-relaxed flex gap-2">
+                  <img src={source_icon} alt={source} className="w-[20px] h-[20px]" />
+                  {source}
                 </h5>
 
       <div className="flex justify-between items-center w-full px-2">
-              {price && (
-                <PriceElement price={price} currency={currency} />
+              {price?.value && (
+                <PriceElement price={price} />
               )}
               {condition && <span className="condition">{condition}</span>}
-              {inStock && <span className="condition">{inStock}</span>}
-              {outOfStock && <span className="condition">{outOfStock}</span>}
+              {in_stock && <span className="condition">in stock</span>}
+              {typeof in_stock === "boolean" && !in_stock && <span className="condition">out of stock</span>}
+              {rating && <span className="condition">Ratings: {rating}</span>}
             </div>
 
       {/* Condition & Stock

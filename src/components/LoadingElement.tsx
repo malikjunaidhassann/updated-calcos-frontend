@@ -47,7 +47,7 @@ const LoadingElement = () => {
           ))}
         </div>
 
-        <div className="skeleton-container">
+        {/* <div className="skeleton-container">
           {Array.from({ length: loadingElementsSize }, (_, index) => (
             <div className="product-card" key={index}>
               <div className="skeleton skeleton-image product-image"></div>
@@ -65,7 +65,7 @@ const LoadingElement = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );
