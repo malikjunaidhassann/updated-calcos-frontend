@@ -15,6 +15,7 @@ type Status = 'IDLE' | 'LOADING' | 'LOADWITHDATA' | 'DONE';
 type ProductStore = {
   inputProduct: Partial<Product>;
   similarProducts: Product[];
+  responseError: string;
   currentStatus: Status;
   STATUS: {
     IDLE: Status;
@@ -26,12 +27,14 @@ type ProductStore = {
   setSimilarProducts: (products: Product[]) => void;
   appendSimilarProducts: (products: Product[]) => void;
   setStatus: (status: Status) => void;
+  setError: (error: string) => void;
   resetState: () => void;
 };
 
 const useProductStore = create<ProductStore>((set) => ({
   inputProduct: {},
   similarProducts: [],
+  responseError: '',
   currentStatus: 'IDLE',
   STATUS: {
     IDLE: 'IDLE',
@@ -48,11 +51,13 @@ const useProductStore = create<ProductStore>((set) => ({
       ),
     })),
   setStatus: (status) => set({ currentStatus: status }),
+  setError: (error) => set({responseError: error}),
   resetState: () =>
     set({
       inputProduct: {},
       similarProducts: [],
       currentStatus: 'LOADING',
+      responseError: ''
     }),
 }));
 

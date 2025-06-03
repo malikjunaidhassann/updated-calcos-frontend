@@ -13,11 +13,22 @@ function Index() {
         similarProducts,
         currentStatus,
         STATUS,
+        responseError,
     } = useProductStore();
 
     console.log("Current status:", currentStatus);
 
     const renderStatusElement = () => {
+        if(responseError) {
+            return (
+                    <>
+                        <SearchBar />
+                        <>
+                            <h3>{responseError}</h3>
+                        </>
+                    </>
+                );
+        }
         switch (currentStatus) {
             case STATUS.IDLE:
                 return (

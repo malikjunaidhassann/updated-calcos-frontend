@@ -14,51 +14,61 @@ const useProductSearch = () => {
         appendSimilarProducts,
         setStatus,
         resetState,
+        setError
     } = useProductStore();
 
     const setupEventSource = (url: any, image = null) => {
-        navigate('/results')
-        const eventSource = new EventSource(url);
+        try {
+            navigate('/results')
+            const eventSource = new EventSource(url);
 
-        eventSource.onmessage = (event) => {
-            try {
-                const msg = JSON.parse(event.data);
-                if (msg.inputData) {
-                    const data = image
-                        ? { ...msg.inputData, imageUrl: image }
-                        : { ...msg.inputData, imageUrl: msg.inputData };
+            eventSource.onmessage = (event) => {
+                try {
+                    const msg = JSON.parse(event.data);
+                    if (msg.error) {
+                        setStatus(STATUS.IDLE);
+                        setError(msg.error);
+                        eventSource.close();
+                        return;
+                    }
+                    if (msg.inputData) {
+                        const data = image
+                            ? { ...msg.inputData, imageUrl: image }
+                            : { ...msg.inputData, imageUrl: msg.inputData };
 
-                    setInputProduct(data);
-                    setStatus(STATUS.LOADWITHDATA);
+                        setInputProduct(data);
+                        setStatus(STATUS.LOADWITHDATA);
+                    }
+                    else if (msg.similarProducts) {
+                        appendSimilarProducts(msg.similarProducts);
+                    }
+                } catch (error) {
+                    console.error("Error parsing SSE data:", error);
                 }
-                else if (msg.similarProducts) {
-                    appendSimilarProducts(msg.similarProducts);
-                }
-            } catch (error) {
-                console.error("Error parsing SSE data:", error);
-            }
-        };
+            };
 
-        eventSource.addEventListener("Done", () => {
-            setStatus(STATUS.DONE);
-            eventSource.close();
-            console.log("DONE: Received all products.");
-        });
+            eventSource.addEventListener("Done", () => {
+                setStatus(STATUS.DONE);
+                eventSource.close();
+                console.log("DONE: Received all products.");
+            });
 
-        eventSource.onerror = (error) => {
-            console.error("SSE Error:", error);
-            eventSource.close();
-            setStatus(STATUS.IDLE);
-        };
+            eventSource.onerror = (error) => {
+                console.error("SSE Error:", error);
+                eventSource.close();
+                setStatus(STATUS.IDLE);
+            };
 
-        return eventSource;
+            return eventSource;
+        } catch (error) {
+            console.log(error)
+        }
     };
 
     const handleURLSearch = (url: any) => {
         resetState();
         setupEventSource(
-            `${backend_Url}visual_matches?url=${encodeURIComponent(url)}`,
-            url
+            `${backend_Url}visual_matches?url=${encodeURIComponent(url)}`
         );
     };
     const uploadToCloudinary = async (file: any) => {
@@ -79,7 +89,6 @@ const useProductSearch = () => {
 
     const handleImgSearch = async (image: any) => {
         resetState();
-        // const base64Url: any = await convertToBase64(image);
         const imageUrl = await uploadToCloudinary(image);
         handleURLSearch(imageUrl)
     };
