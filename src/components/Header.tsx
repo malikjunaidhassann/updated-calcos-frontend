@@ -13,19 +13,22 @@ const Header = (): JSX.Element => {
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  console.log({pathname});
-  
+  console.log({ pathname });
+
 
   return (
     <header className="flex w-[98.5%] fixed top-0 h-[71px] z-40 items-center justify-between px-4 md:px-20 py-0 bg-[#57575724] backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] overflow-hidden">
       {/* Logo section */}
       <div className="flex items-center gap-3">
-        <div className="relative w-[164px] h-9">
-          <img
-            className="absolute w-[34px] h-9 top-0 left-0"
-            alt="Group"
-            src="/group-163.png"
-          />
+        <div className="relative w-[164px] h-9 flex items-center">
+          <button className="w-[35px] h-[35px] bg-[#fe37a3] rounded-[23.5px] flex items-center justify-center"
+          >
+            <img
+              className="w-[18px] h-[18px]"
+              alt="Search icon"
+              src="/icon--stroke-.svg"
+            />
+          </button>
           <div className="absolute w-[123px] h-[27px] top-0.5 left-[41px]">
             <div className="relative h-[27px]">
               <img
@@ -55,15 +58,14 @@ const Header = (): JSX.Element => {
       <NavigationMenu className={`${isMenuOpen ? 'block' : 'hidden'} md:block absolute md:relative top-[71px] md:top-0 right-0 w-full md:w-auto bg-transparent backdrop:blur md:bg-transparent z-50 `}>
         <NavigationMenuList className="flex flex-col  md:flex-row items-start md:items-center gap-6 md:gap-[50px] p-4 md:p-0">
           {NavLinks.map((link, index) => (
-              <NavigationMenuItem key={index}>
-                <NavigationMenuLink
-                  className={`text-[16px] leading-6 font-['Inter',Helvetica] text-white ${
-                    link.link === pathname ? "font-bold" : "font-normal"
+            <NavigationMenuItem key={index}>
+              <NavigationMenuLink
+                className={`text-[16px] leading-6 font-['Inter',Helvetica] text-white ${link.link === pathname ? "font-bold" : "font-normal"
                   }`}
-                >
-                 <Link to={link.link}> {link.title} </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              >
+                <Link to={link.link}> {link.title} </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           ))}
         </NavigationMenuList>
       </NavigationMenu>
