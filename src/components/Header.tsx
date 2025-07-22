@@ -21,14 +21,11 @@ const Header = (): JSX.Element => {
       {/* Logo section */}
       <div className="flex items-center gap-3">
         <div className="relative w-[164px] h-9 flex items-center">
-          <button className="w-[35px] h-[35px] bg-[#fe37a3] rounded-[23.5px] flex items-center justify-center"
-          >
-            <img
-              className="w-[18px] h-[18px]"
-              alt="Search icon"
-              src="/icon--stroke-.svg"
-            />
-          </button>
+          <img
+            className="absolute w-[34px] h-9 top-0 left-0"
+            alt="Group"
+            src="/lens.png"
+          />
           <div className="absolute w-[123px] h-[27px] top-0.5 left-[41px]">
             <div className="relative h-[27px]">
               <img
