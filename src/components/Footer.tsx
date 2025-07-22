@@ -44,7 +44,7 @@ import {
                   <img
                     className="w-[33px] h-[35px] "
                     alt="Group"
-                    src="/group-163-1.png"
+                    src="/lens.png"
                   />
                   <div className="absolute w-[119px] h-[26px] top-0.5 left-10">
                     <div className="relative h-[26px]">
